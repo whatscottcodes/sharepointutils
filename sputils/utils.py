@@ -16,7 +16,6 @@ class spUtils:
         self.password = password
         self.baseurl = baseurl
         self.ctx_auth = self.auth_user()
-        self.ctx = ClientContext(siteurl, ctx_auth)
 
     def auth_user(self):
         ctx_auth = AuthenticationContext(self.baseurl)
@@ -28,7 +27,8 @@ class spUtils:
     
         filePath = f"{savePath}/{fileName}"
         siteurl = self.baseurl + basesite 
-    
+        ctx = ClientContext(siteurl, self.ctx_auth)
+
         localpath = filePath
         remotepath = f"{spFolderPath}/{fileName}"
     
@@ -40,7 +40,8 @@ class spUtils:
     def upload_file(self, basesite, spfolderpath, fileName, filePath, first_of_week):
         filePath = f"{filePath}/{fileName}"
         siteurl = self.baseurl + basesite 
-
+        ctx = ClientContext(siteurl, self.ctx_auth)
+        
         localpath = filePath
         remotepath = f"{spfolderpath}{fileName}" # existing folder path under sharepoint site.
     
