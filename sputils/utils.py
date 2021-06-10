@@ -15,7 +15,7 @@ class spUtils:
         self.username = username
         self.password = password
         self.baseurl = baseurl
-        self.ctx_auth = auth_user(self)
+        self.ctx_auth = self.auth_user()
         self.ctx = ClientContext(siteurl, ctx_auth)
 
     def auth_user(self):
