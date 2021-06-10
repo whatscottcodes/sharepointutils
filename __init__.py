@@ -1,1 +1,1 @@
-from . import *
+from sharepoint_utils.sputils.utils import spUtils
