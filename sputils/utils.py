@@ -33,7 +33,7 @@ class spUtils:
         remotepath = f"{spFolderPath}/{fileName}"
     
         with open(filePath, "wb") as local_file:
-            file = self.ctx.web.get_file_by_server_relative_url(f"{siteName}/{remotepath}").download(local_file).execute_query()
+            file = ctx.web.get_file_by_server_relative_url(f"{siteName}/{remotepath}").download(local_file).execute_query()
 
         print("...file downloaded...")
         return filePath
@@ -51,11 +51,11 @@ class spUtils:
         
         directory, name = os.path.split(remotepath)
     
-        self.ctx.web.get_folder_by_server_relative_url(directory).upload_file(name, file_content).execute_query()
+        ctx.web.get_folder_by_server_relative_url(directory).upload_file(name, file_content).execute_query()
     
         try:
-            self.ctx.web.get_file_by_server_relative_url(f"{siteName}/{remotepath}").checkin(comment=" ", checkin_type=0)
-            self.ctx.execute_query()
+            ctx.web.get_file_by_server_relative_url(f"{siteName}/{remotepath}").checkin(comment=" ", checkin_type=0)
+            ctx.execute_query()
         except:
             print("...no check-in required...")
     
