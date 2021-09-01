@@ -2,6 +2,8 @@ from office365.runtime.auth.user_credential import UserCredential
 from office365.runtime.auth.authentication_context import AuthenticationContext
 from office365.sharepoint.client_context import ClientContext
 
+import os
+
 class spUtils:
     """
     Class for working with SharePoint files.
